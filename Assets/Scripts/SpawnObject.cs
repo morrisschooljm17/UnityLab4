@@ -6,8 +6,15 @@ public class SpawnObject : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private MeshRenderer meshRenderer;
-    private Color c;
     private float lastHitTime = 0;
+
+
+    public void SetColor(Color c) {
+
+        meshRenderer.material.SetColor("_Color", c);
+
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if ((Time.time - lastHitTime) > 0.25f)
